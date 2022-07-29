@@ -6,8 +6,9 @@
 char *_which(char *filename, ...)
 {
 	int i;
-	char *token = malloc(sizeof(char)), *duplicate = malloc(sizeof(char));
-	char **saveMe = malloc(sizeof(char *));
+	struct stat st;
+	char *token = NULL, *duplicate = NULL, *aux = NULL, *aux2 = NULL;
+	char **saveMe = malloc(sizeof(char *) * 7);
 
 	if (saveMe == NULL)
 		return("error");
@@ -16,35 +17,40 @@ char *_which(char *filename, ...)
 	duplicate = _getenv("PATH");  /* buffer */
 	/* tokenize */
 	printf("Work\n");
-
-	token = strdup(duplicate);
 	/* save paths into **saveMe */
-	saveMe[0] = strtok(token, ":");
-	printf("antes for: %s\n", saveMe[0]);
-	for (i = 1; i < 7; i++)
+	token = strtok(duplicate, ":");
+	for (i = 0; token; i++)
 	{
-		if (token == NULL)
-			break;
-		else
-		{
-        		printf("WHICH: %s\n", token);
-			token = strtok(NULL, ":");
-			saveMe[i] = token;
-			printf("After adding to saveMe[%i]: %s\n", i, saveMe[i]);
-		}
+       		printf("WHICH: %s.\n", token);
+		saveMe[i] = strdup(token);
+		token = strtok(NULL, ":");
+		printf("After adding to saveMe[%i]: %s\n", i, saveMe[i]);
 	}
+	saveMe[i] = NULL;
+	printf("Here\n");
+	for (i = 0; saveMe[i]; i++)
+		printf("\nA ver saveMe[%i]: %s\n", i, saveMe[i]);
 	/* concat */
-	for (i = 0; i < 7; i++)
+	for (i = 0; saveMe[i]; i++)
 	{
 		printf("Pre strcat saveMe[%i]: %s\n", i, saveMe[i]);
-		saveMe[i] = strcat(saveMe[i], "/");
-		printf("SaveMe[%i]: %s\n", i, saveMe[i]);
+		aux = _str_concat(saveMe[i], "/");
+		aux2 = _str_concat(aux, filename);
+		printf("Aux: %s\n, aux2: %s\n", aux, aux2);
+		if (stat(aux2, ) == 0)
+		{
+			printf("Holi\n");
+			free(aux);
+			return (aux2);
+		}
+		free(aux);
+		free(aux2);
 	}
 
-	for (i = 7; i >= 0; i--)
+	for (i = 0; saveMe[i]; i++)
 	{
 		free(saveMe[i]);
 	}
-	free(saveMe);
+	free(saveMe[i]), free(saveMe), free(duplicate);
 	return (token);
 }
