@@ -1,7 +1,4 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-extern char **environ;
+#include "main.h"
 /**
  *
  */
