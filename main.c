@@ -5,7 +5,7 @@
 int main(int argc, char **argv)
 {
         size_t bufsize = 32;
-        char *buffer = (char *)malloc(bufsize * sizeof(char)), *buffer2;
+        char *buffer = (char *)malloc(bufsize * sizeof(char)), *buffer2, *location;
         size_t character;
 	int pid;
 
@@ -24,7 +24,8 @@ int main(int argc, char **argv)
 		return (-1);
 	if (pid == 0)
 	{
-		_which(buffer2); /* does the cmd exist? */
+		location = _which(buffer2); /* does the cmd exist? */
+		printf("%s\n", location);
 		/* lo que me devuelve which lo ejecuto */
 	}
         /* gotPATH = _getenv("PATH"); */

@@ -10,13 +10,8 @@ char *_getenv(const char *name)
 	/* loop through envps */
 	for (; environ; i++)
 	{
-		printf("envp looks: %s\n", environ[i]);
-
 		duplicate = strdup(environ[i]);
-		printf("duplicate of envp: %s\n", duplicate);
-
 		token = strtok(duplicate, "=");
-		printf("token before if: %s\n", token);
 		/* check for PATH */
 		if (strcmp(duplicate, name) == 0)
 		{
