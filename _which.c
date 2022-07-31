@@ -37,7 +37,7 @@ char *_which(char *filename, ...)
 		aux = _str_concat(saveMe[i], "/");
 		aux2 = _str_concat(aux, filename);
 		printf("Aux: %s\n, aux2: %s\n", aux, aux2);
-		if (stat(aux2, ) == 0)
+		if (stat(aux2,) == 0)
 		{
 			printf("Holi\n");
 			free(aux);
