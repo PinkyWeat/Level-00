@@ -28,4 +28,16 @@ The command line arguments are passed through the ``main`` function: ``int main(
 **Environment** - [printenv](https://man7.org/linux/man-pages/man1/printenv.1.html)
 
 **main()** - [main function](https://en.cppreference.com/w/c/language/main_function)
- 
+
+# Personal Notes
+
+- All files starting with X are the ones I'm compiling at the moment + main.h
+- Code works until ctrl+c but I think's 'cause I'm forcing it.
+- Code recognizes one command without flags yet.
+
+## For tomorrow
+
+- Code needs to recognize flags.
+- Code needs to find current usr for /usr/ part in location variable in main that's currently hardocoded.
+- Code needs to be verified with valgrind + betty.
+- Code needs to be double checked for ifs of cases that there are errors (excess of args, 'n that stuff).
