@@ -18,6 +18,6 @@ char *_which(char *filename, ...);
 
 char *_str_concat(char *s1, char *s2);
 
-int repeatMe(char *str);
+int repeatMe(char *str, char delim);
 
 #endif

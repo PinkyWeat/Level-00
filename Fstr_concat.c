@@ -43,34 +43,3 @@ char *_str_concat(char *s1, char *s2)
 	conc[p2] = '\0';
 	return (conc);
 }
-/**
- *
- */
-/*int main(void)
-{
-	char *str[] = {"/bin/ls", "-l", "/var/", NULL};
-	int x, y, counter = 0;
-
-	for (x = 0; str; x++)
-	{
-		for (y = 0; str[y]; y++)
-			printf("str[%i]: %s\n", y, str[y]);
-		counter++;
-	}
-	return
-}*/
-/**
- * repeatMe - counts repetitions of :
- */
-int repeatMe(char *str, char delim)
-{
-	int i, len = strlen(str), count = 0;
-
-	/* printf("print delim: %c\n", delim);*/
-	for (i = 0; i<= len; i++)
-	{
-		if (str[i] == delim)
-			count++;
-	}
-	return (count);
-}
