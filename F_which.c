@@ -7,7 +7,7 @@ char *_which(char *filename, ...)
 {
 	int i, args = 0;
 	struct stat st;
-	char *token = NULL, *duplicate = NULL, *aux = NULL, *aux2 = NULL, *xd = "lmao";
+	char *token = NULL, *duplicate = NULL, *aux = NULL, *aux2 = NULL;
 	char **saveMe; /*= malloc(sizeof(char *) * 7);i*/
 
 	duplicate = _getenv("PATH"); /* obtain current path */

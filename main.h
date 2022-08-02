@@ -10,7 +10,9 @@
 
 extern char **environ;
 
-int main(int argc, char **argv);
+/*int main(int argc, char **argv);*/
+
+int main(__attribute__((unused))int argc, char **argv);
 
 char *_getenv(const char *name);
 
@@ -19,5 +21,9 @@ char *_which(char *filename, ...);
 char *_str_concat(char *s1, char *s2);
 
 int repeatMe(char *str, char delim);
+
+char **executeMe(char *buffer);
+
+void printMe(char **print);
 
 #endif

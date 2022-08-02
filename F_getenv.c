@@ -5,7 +5,7 @@
 char *_getenv(const char *name)
 {
         int i = 0;
-        char *duplicate, *token, *token2;
+        char *duplicate, *token;
 
         /* loop through envps */
         for (; environ; i++)

@@ -2,11 +2,12 @@
 /**
  *
  */
-int main(int argc, char **argv)
+int main(int argc,__attribute__((unused))char **argv)
 {
         size_t bufsize = 0;
-        char *buffer = NULL, *buffer2 = NULL, **location = NULL, *token = NULL;
-        size_t character;
+        char *buffer = NULL, *buffer2 = NULL, **location = NULL;
+	char *token = NULL;
+        int character = 0;
 	int pid = 0, status;
 
 	while (1)
@@ -20,7 +21,11 @@ int main(int argc, char **argv)
 		}
         	/* dup cmd line + save only what was first written */
 		buffer2 = strdup(buffer);
-		token = strtok(buffer2, "\n");
+		if (argc >= 1)
+		{
+			token = strtok(buffer2, "\n");
+			printf("%s\n", token);
+		}
 		/* creates child proc for execve */
 		/* printf("HERE I AM: %s.\n", token);*/
 		pid = fork();
