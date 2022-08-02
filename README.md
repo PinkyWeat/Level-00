@@ -53,6 +53,6 @@ The command line arguments are passed through the ``main`` function: ``int main(
 
 ## More
 
-- Compiled with:
+Compiled with:
 
 	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 Fmain.c Fget_funcs.c F_getenv.c Fstr_concat.c F_which.c -o hsh
